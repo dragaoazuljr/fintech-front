@@ -1,1 +1,61 @@
-<p>login works!</p>
+<div class="flex-center login-content">
+	<h1 class="title">Fintech<span class="bold">Bank</span></h1>
+	<form *ngIf="!showSignUp" [formGroup]="loginForm">
+			<div class="flex-center login-form">
+			<mat-form-field class="login">
+				<mat-label>E-mail</mat-label>
+				<input matInput type="text" formControlName="email">
+			</mat-form-field>
+			<fintech-input-errors class="input-errors" [control]="loginForm?.controls?.email"></fintech-input-errors>
+			<mat-form-field class="password">
+				<mat-label>Senha</mat-label>
+				<input matInput type="password" formControlName="password">
+			</mat-form-field>
+			<button 
+				mat-raised-button 
+				color="primary" 
+				class="btn btn-logar"
+				(click)="login()">
+				Logar
+			</button>
+			<button 
+				mat-raised-button 
+				color="primary" 
+				class="btn btn-signup"
+				(click)="showSignUpForm()">
+				Cadastrar
+			</button>
+		</div>
+	</form>
+
+	<form *ngIf="showSignUp" [formGroup]="signUpForm">
+		<div class="flex-center login-form">
+			<mat-form-field class="login">
+				<mat-label>Nome Completo</mat-label>
+				<input matInput type="text" formControlName="name">
+			</mat-form-field>
+			<mat-form-field class="login">
+				<mat-label>E-mail</mat-label>
+				<input matInput type="text" formControlName="email">
+			</mat-form-field>
+			<mat-form-field class="login">
+				<mat-label>Senha</mat-label>
+				<input matInput type="password" formControlName="password">
+			</mat-form-field>
+			<mat-form-field class="login">
+				<mat-label>Confirmar senha</mat-label>
+				<input matInput type="password" formControlName="confirmPassword">
+			</mat-form-field>
+			<mat-form-field class="login">
+				<mat-label>Valor Inicial da Conta</mat-label>
+				<input matInput type="text" formControlName="initialValue">
+			</mat-form-field>
+			<mat-form-field class="login">
+				<mat-label>Moeda</mat-label>
+				<input matInput type="text" formControlName="currency">
+			</mat-form-field>
+			<button class="btn" mat-raised-button color="primary" (click)="signUp()">Cadastrar</button>
+			<button class="btn" mat-raised-button color="primary" (click)="cancelSignUp()">Cancelar</button>
+		</div>
+	</form>
+</div>

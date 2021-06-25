@@ -3,7 +3,10 @@ import { CommonModule } from '@angular/common';
 import { AuthService } from './auth.service';
 import { LoginComponent } from './login/login.component';
 import { AuthRoutingModule } from './auth-routing.module';
-
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { ReactiveFormsModule } from '@angular/forms';
+import { InputErrorsModule } from '../shared/components/input-errors/input-errors.module';
 
 
 @NgModule({
@@ -12,7 +15,11 @@ import { AuthRoutingModule } from './auth-routing.module';
   ],
   imports: [
     CommonModule,
-    AuthRoutingModule
+    ReactiveFormsModule,
+    AuthRoutingModule,
+    MatInputModule,
+    MatButtonModule,
+    InputErrorsModule
   ],
   providers: [AuthService]
 })

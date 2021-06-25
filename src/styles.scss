@@ -1,1 +1,42 @@
-/* You can add global styles to this file, and also import other style files */
+@use '~@angular/material' as mat;
+
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@100;200;300;400;500&display=swap');
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+// Material theme
+
+$custom-font-config: mat.define-typography-level(
+	$font-family: Work Sans,
+	$font-size: 1,
+	$font-weight: 200
+);
+
+$custom-typography-config: mat.define-typography-config(
+	$input: $custom-font-config,
+	$button: $custom-font-config,
+	$caption: $custom-font-config
+);
+
+@include mat.core($custom-typography-config);
+
+/* Global classes */
+
+.bold {
+	font-weight: 500;
+}
+
+.mat-form-field{
+	font-family: Work Sans;
+	font-weight: 200;
+}
+
+input.mat-input-element{
+	color: white;
+}
+
+body{
+	color:white;
+	font-family: Work Sans;
+}
