@@ -1,6 +1,14 @@
+@import "../../../../assets/colors";
+
 ul {
 	width: 100%;
 	margin: 0px;
 	padding: 0px;
 	list-style-type: none;
+	min-height: 1.25em;
+
+	li{
+		color: $error;
+		margin: 5px 0px;
+	}
 }

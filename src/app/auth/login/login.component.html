@@ -2,7 +2,7 @@
 	<h1 class="title">Fintech<span class="bold">Bank</span></h1>
 	<form *ngIf="!showSignUp" [formGroup]="loginForm">
 			<div class="flex-center login-form">
-			<mat-form-field class="login">
+			<mat-form-field [ngClass]="['login']">
 				<mat-label>E-mail</mat-label>
 				<input matInput type="text" formControlName="email">
 			</mat-form-field>
@@ -11,10 +11,12 @@
 				<mat-label>Senha</mat-label>
 				<input matInput type="password" formControlName="password">
 			</mat-form-field>
+			<fintech-input-errors class="input-errors" [control]="loginForm?.controls?.password"></fintech-input-errors>
 			<button 
 				mat-raised-button 
 				color="primary" 
 				class="btn btn-logar"
+				[disabled]="loginForm.invalid"
 				(click)="login()">
 				Logar
 			</button>
@@ -34,26 +36,34 @@
 				<mat-label>Nome Completo</mat-label>
 				<input matInput type="text" formControlName="name">
 			</mat-form-field>
+			<fintech-input-errors class="input-errors" [control]="signUpForm?.controls?.name"></fintech-input-errors>
 			<mat-form-field class="login">
 				<mat-label>E-mail</mat-label>
 				<input matInput type="text" formControlName="email">
 			</mat-form-field>
+			<fintech-input-errors class="input-errors" [control]="signUpForm?.controls?.email"></fintech-input-errors>
 			<mat-form-field class="login">
 				<mat-label>Senha</mat-label>
 				<input matInput type="password" formControlName="password">
 			</mat-form-field>
+			<fintech-input-errors class="input-errors" [control]="signUpForm?.controls?.password"></fintech-input-errors>
 			<mat-form-field class="login">
 				<mat-label>Confirmar senha</mat-label>
 				<input matInput type="password" formControlName="confirmPassword">
 			</mat-form-field>
+			<fintech-input-errors class="input-errors" [control]="signUpForm?.controls?.confirmPassword"></fintech-input-errors>
 			<mat-form-field class="login">
 				<mat-label>Valor Inicial da Conta</mat-label>
-				<input matInput type="text" formControlName="initialValue">
+				<input matInput type="text" prefix="$" mask="separator.2" formControlName="initialValue">
 			</mat-form-field>
+			<fintech-input-errors class="input-errors" [control]="signUpForm?.controls?.initialValue"></fintech-input-errors>
 			<mat-form-field class="login">
 				<mat-label>Moeda</mat-label>
-				<input matInput type="text" formControlName="currency">
+				<mat-select [formControl]="signUpForm?.controls?.currency">
+					<mat-option *ngFor="let currencyOpt of currencyOptions" [value]="currencyOpt">{{currencyOpt}}</mat-option>
+				</mat-select>
 			</mat-form-field>
+			<fintech-input-errors class="input-errors" [control]="signUpForm?.controls?.currency"></fintech-input-errors>
 			<button class="btn" mat-raised-button color="primary" (click)="signUp()">Cadastrar</button>
 			<button class="btn" mat-raised-button color="primary" (click)="cancelSignUp()">Cancelar</button>
 		</div>

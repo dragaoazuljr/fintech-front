@@ -1,5 +1,6 @@
 import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 import { AbstractControl, FormControl } from '@angular/forms';
+import { TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -13,7 +14,9 @@ export class InputErrorsComponent implements OnInit {
   listenFormControlChanges$!: Subscription;
   errors: string[] = [];
 
-  constructor() { }
+  constructor(
+    private translate: TranslateService
+  ) { }
 
   ngOnInit(): void {
   }
@@ -37,7 +40,10 @@ export class InputErrorsComponent implements OnInit {
     
     const errors = this.control.errors;
 
-    if (!errors) return;
+    if (!errors) {
+      this.errors = [];
+      return;
+    };
 
     this.errors = 
       Object.keys(errors)

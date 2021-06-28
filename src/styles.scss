@@ -1,5 +1,5 @@
 @use '~@angular/material' as mat;
-
+@import "/src/assets/colors";
 /* Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@100;200;300;400;500&display=swap');
 html, body { height: 100%; }
@@ -32,6 +32,24 @@ $custom-typography-config: mat.define-typography-config(
 	font-weight: 200;
 }
 
+.mat-form-field-wrapper {
+	padding: 0px;
+}
+
+.snack-bar-error{
+	background-color: $error;
+    color: white;
+    font-family: 'Work Sans';
+    font-weight: 500;
+}
+
+.snack-bar-success{
+	background-color: $success;
+    color: white;
+    font-family: 'Work Sans';
+    font-weight: 500;
+}
+
 input.mat-input-element{
 	color: white;
 }
@@ -39,4 +57,5 @@ input.mat-input-element{
 body{
 	color:white;
 	font-family: Work Sans;
+	background-color: $background-color;
 }
