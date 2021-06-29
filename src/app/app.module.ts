@@ -13,6 +13,7 @@ import { SharedModule } from './shared/shared.module';
 import { ShowHttpErrorsService } from './shared/services/show-http-errors.service';
 import { CustomLoader } from './shared/CustomLoader';
 import { NgxMaskModule } from 'ngx-mask';
+import { DashboardModule } from './dashboard/dashboard.module';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { NgxMaskModule } from 'ngx-mask';
     BrowserModule,
     AppRoutingModule,
     AuthModule,
+    DashboardModule,
     BrowserAnimationsModule,
     HttpClientModule,
     SharedModule,
