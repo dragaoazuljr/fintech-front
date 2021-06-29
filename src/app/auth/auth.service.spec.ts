@@ -32,26 +32,26 @@ describe('AuthService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('should not login and return null', async () => {
+  it('should not login and return null', (done) => {
     const loginData = {
       email: "user@test.com",
       password: "User@10"
     };
 
-    service.login(loginData).then(res => {
-      expect(res)
-      .toBeFalsy();
-    }).catch(res => {
-      expect(res)
-        .toBeFalsy()
-    })
+    service.login(loginData)
+      .then(res => {
+        expect(res)
+          .toBeUndefined();
+      })
     
     const req = httpTestingController.expectOne("http://localhost:3000/auth/login");
 
     req.error(new ErrorEvent('HttpError'));
+
+    done()
   })
 
-  it('should login and return access token', async (done) => {
+  it('should login and return access token', (done) => {
     const loginData = {
       email: "user@test.com",
       password: "User@10"
@@ -62,9 +62,8 @@ describe('AuthService', () => {
     };
     
     service.login(loginData).then(res => {
-      expect(res)
-        .toBeTruthy()
-      
+      expect(JSON.stringify(res))
+        .toEqual(JSON.stringify(mockResponse))
     })
     
     const req = httpTestingController.expectOne("http://localhost:3000/auth/login");

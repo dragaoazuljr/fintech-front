@@ -36,6 +36,7 @@ export class AuthService {
 
   async signUp(createUserData: CreateUserData) {
     return this._httpClient
-      .post(`${this.api}/users`, createUserData)
+      .post<any>(`${this.api}/users`, createUserData)
+      .toPromise()
   }
 }
