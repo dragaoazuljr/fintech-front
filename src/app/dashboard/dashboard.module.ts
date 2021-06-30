@@ -7,13 +7,17 @@ import { DasboardBalancesComponent } from './dasboard-balances/dasboard-balances
 import { TransactionsModule } from '../transactions/transactions.module';
 import { CardModule } from '../shared/components/card/card.module';
 import { NgScrollbarModule } from 'ngx-scrollbar';
+import { DasboardTransactionsComponent } from './dasboard-transactions/dasboard-transactions.component';
+import { DashboardTransactionsItemComponent } from './dasboard-transactions/dashboard-transactions-item/dashboard-transactions-item.component';
 
 
 
 @NgModule({
   declarations: [
     DashboardComponent,
-    DasboardBalancesComponent
+    DasboardBalancesComponent,
+    DasboardTransactionsComponent,
+    DashboardTransactionsItemComponent
   ],
   imports: [
     CommonModule,

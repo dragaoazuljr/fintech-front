@@ -3,6 +3,11 @@
 	margin-left: 15px;
 }
 
+.header{
+	display: flex;
+	justify-content: space-between;
+}
+
 .scroll{
 	width: max-content;
 	display: flex;

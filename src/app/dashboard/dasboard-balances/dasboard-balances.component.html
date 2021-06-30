@@ -1,5 +1,8 @@
 <div *ngIf="balances" class="dashboard-balance-content">
-	<h2>Saldo</h2>
+	<div class="header">
+		<h2>Saldo</h2>
+		<a [routerLink]="'/dashboard/balances'">Ver mais</a>
+	</div>
 	<div class="balance">
 		<div *ngIf="firstBalance" class="first-balance">
 			<fintech-card>
@@ -17,6 +20,5 @@
 		</div>
 	</div>
 	<div class="see-all">
-		<a [routerLink]="'/dashboard/balances'">Ver mais</a>
 	</div>
 </div>
