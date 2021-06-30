@@ -1,5 +1,6 @@
 .rest-balances {
-	overflow-x: scroll;
+	overflow-x: auto;
+	margin-left: 15px;
 }
 
 .scroll{
@@ -15,5 +16,32 @@
 
 .rest-card {
 	min-width: 150px;
-	margin: 15px 10px 15px 0px;
+	margin: 0px 10px 15px 0px;
+}
+
+.balance {
+	display: flex;
+	width: 100%;
+}
+
+.first-balance {
+	flex-grow: 2;
+}
+
+.rest-balances{
+	flex-grow: 3;
+}
+
+@media (max-width: 768px) {
+	.balance {
+		flex-direction: column;
+	}
+
+	.first-balance, .rest-balances {
+		flex-grow: 1;
+	}
+
+	.rest-balances {
+		margin: 15px 0px;
+	}
 }

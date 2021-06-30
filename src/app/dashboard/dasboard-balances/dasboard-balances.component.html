@@ -1,17 +1,19 @@
 <div *ngIf="balances" class="dashboard-balance-content">
 	<h2>Saldo</h2>
-	<div *ngIf="firstBalance" class="first-balance">
-		<fintech-card>
-			<h3 class="title">{{firstBalance?.currency}}</h3>
-			<h2 class="body">{{ firstBalance?.value | currency: firstBalance?.currency }}</h2>
-		</fintech-card>
-	</div>
-	<div class="rest-balances">
-		<div class="scroll">
-			<fintech-card class="rest-card" *ngFor="let balance of restBalances">
-				<h3 class="title">{{ balance?.currency }}</h3>
-				<h2 class="body">{{ balance?.value | currency: balance?.currency}}</h2>
+	<div class="balance">
+		<div *ngIf="firstBalance" class="first-balance">
+			<fintech-card>
+				<h3 class="title">{{firstBalance?.currency}}</h3>
+				<h2 class="body">{{ firstBalance?.value | currency: firstBalance?.currency }}</h2>
 			</fintech-card>
+		</div>
+		<div class="rest-balances">
+			<div class="scroll">
+				<fintech-card class="rest-card" *ngFor="let balance of restBalances">
+					<h3 class="title">{{ balance?.currency }}</h3>
+					<h2 class="body">{{ balance?.value | currency: balance?.currency}}</h2>
+				</fintech-card>
+			</div>
 		</div>
 	</div>
 	<div class="see-all">

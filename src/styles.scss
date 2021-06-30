@@ -13,10 +13,42 @@ $custom-font-config: mat.define-typography-level(
 	$font-weight: 200
 );
 
+$custom-body-1: mat.define-typography-level(
+	$font-family: Work Sans,
+	$font-size: 1,
+	$font-weight: 500
+);
+
+$custom-headline: mat.define-typography-level(
+	$font-family: Work Sans,
+	$font-size: 24px,
+	$font-weight: 500
+);
+$custom-title: mat.define-typography-level(
+	$font-family: Work Sans,
+	$font-size: 20px,
+	$font-weight: 500
+);
+$custom-subheading-2: mat.define-typography-level(
+	$font-family: Work Sans,
+	$font-size: 16px,
+	$font-weight: 500
+);
+$custom-subheading-1: mat.define-typography-level(
+	$font-family: Work Sans,
+	$font-size: 12px,
+	$font-weight: 500
+);
+
 $custom-typography-config: mat.define-typography-config(
 	$input: $custom-font-config,
 	$button: $custom-font-config,
-	$caption: $custom-font-config
+	$caption: $custom-font-config,
+	$body-1: $custom-body-1,
+	$headline: $custom-headline,
+	$title: $custom-title,
+	$subheading-2: $custom-subheading-2,
+	$subheading-1: $custom-subheading-1,
 );
 
 @include mat.core($custom-typography-config);
@@ -58,22 +90,6 @@ body{
 	color:white;
 	font-family: Work Sans;
 	background-color: $background-color;
-}
-
-h1, h2, h3, h4, h5, p, span, strong {
-	font-family: Work Sans!important;
-}
-
-h1,h2,h3 {
-	font-weight: 500!important;
-}
-
-h4, h5, p, span {
-	font-weight: 200;
-};
-
-h1 {
-	font-size: 40px!important;
 }
 
 a {
