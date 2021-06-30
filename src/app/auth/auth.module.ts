@@ -22,7 +22,6 @@ import { MatSelectModule } from '@angular/material/select'
     CommonModule,
     ReactiveFormsModule,
     AuthRoutingModule,
-    HttpClientModule,
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,

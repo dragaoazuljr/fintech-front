@@ -20,8 +20,8 @@ export class AuthenticatedGuard implements CanActivate {
 		
 		const isExpired = helper.isTokenExpired(token);
 
-		if (!isExpired) this.router.navigate(["/"])
+		if (isExpired) this.router.navigate(["/"])
 
-		return isExpired
+		return !isExpired
 	}
 }

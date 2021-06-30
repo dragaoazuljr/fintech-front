@@ -1,0 +1,19 @@
+.rest-balances {
+	overflow-x: scroll;
+}
+
+.scroll{
+	width: max-content;
+	display: flex;
+}
+
+.see-all {
+	display: flex;
+	justify-content: flex-end;
+	margin: 5px 0px;
+}
+
+.rest-card {
+	min-width: 150px;
+	margin: 15px 10px 15px 0px;
+}

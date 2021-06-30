@@ -14,6 +14,7 @@ import { ShowHttpErrorsService } from './shared/services/show-http-errors.servic
 import { CustomLoader } from './shared/CustomLoader';
 import { NgxMaskModule } from 'ngx-mask';
 import { DashboardModule } from './dashboard/dashboard.module';
+import { AuthenticatorInterceptor } from './interceptors/Authentication.interceptor';
 
 @NgModule({
   declarations: [
@@ -37,10 +38,14 @@ import { DashboardModule } from './dashboard/dashboard.module';
     })
   ],
   providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthenticatorInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ShowHttpErrorsInterceptor, multi: true },
     { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'outline'} },
     TranslateService,
     ShowHttpErrorsService
+  ],
+  exports: [
+    HttpClientModule
   ],
   bootstrap: [AppComponent]
 })

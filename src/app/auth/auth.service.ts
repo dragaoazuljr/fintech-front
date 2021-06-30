@@ -29,7 +29,7 @@ export class AuthService {
   }
 
   persistAcessToken(res: { access_token: string; }) {
-    localStorage.setItem("accessToken", res.access_token);
+    localStorage.setItem("access_token", res.access_token);
 
     return res
   }
