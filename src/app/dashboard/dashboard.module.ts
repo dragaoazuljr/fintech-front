@@ -4,11 +4,16 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardService } from './dashboard.service';
 import { DasboardBalancesComponent } from './dasboard-balances/dasboard-balances.component';
-import { TransactionsModule } from '../transactions/transactions.module';
 import { CardModule } from '../shared/components/card/card.module';
 import { NgScrollbarModule } from 'ngx-scrollbar';
 import { DasboardTransactionsComponent } from './dasboard-transactions/dasboard-transactions.component';
 import { DashboardTransactionsItemComponent } from './dasboard-transactions/dashboard-transactions-item/dashboard-transactions-item.component';
+import { DasboardPixComponent } from './dasboard-pix/dasboard-pix.component';
+import { PixService } from '../pix/pix.service';
+import { TransactionsService } from '../transactions/transactions.service';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
 
 
 
@@ -17,17 +22,22 @@ import { DashboardTransactionsItemComponent } from './dasboard-transactions/dash
     DashboardComponent,
     DasboardBalancesComponent,
     DasboardTransactionsComponent,
-    DashboardTransactionsItemComponent
+    DashboardTransactionsItemComponent,
+    DasboardPixComponent
   ],
   imports: [
     CommonModule,
     DashboardRoutingModule,
-    TransactionsModule,
     CardModule,
-    NgScrollbarModule
+    NgScrollbarModule,
+    ReactiveFormsModule,
+    MatButtonModule,
+    MatInputModule
   ],
   providers: [
-    DashboardService
+    DashboardService,
+    PixService,
+    TransactionsService
   ]
 })
 export class DashboardModule { }

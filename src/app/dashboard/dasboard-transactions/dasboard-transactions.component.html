@@ -1,14 +1,16 @@
 <div class="dashboard-transactions-content">
-	<div class="title">
-		<h2>Últimas Transações</h2>
-		<a [routerLink]="'/transactions'">Ver mais</a>
-	</div>
-	<fintech-card>
-		<div class="body transactions-list">
-			<fintech-dashboard-transactions-item 
-				*ngFor="let transaction of transactions" 
-				[transaction]="transaction">
-			</fintech-dashboard-transactions-item>
+	<div class="transactions">
+		<div class="title">
+			<h2>Últimas Transações</h2>
+			<a [routerLink]="'/transactions'">Ver mais</a>
 		</div>
-	</fintech-card>
+		<fintech-card>
+			<div class="body transactions-list">
+				<fintech-dashboard-transactions-item 
+					*ngFor="let transaction of transactions" 
+					[transaction]="transaction">
+				</fintech-dashboard-transactions-item>
+			</div>
+		</fintech-card>
+	</div>
 </div>

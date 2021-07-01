@@ -1,0 +1,21 @@
+<div class="dashboard-pix-content">
+	<div class="pix-header">
+		<h2>Chaves Pix</h2>
+		<a [routerLink]="'/pix'">Ver mais</a>
+	</div>
+	<fintech-card>
+		<div class="title pix-search light-theme">
+			<mat-form-field>
+				<mat-label>Buscar</mat-label>
+				<input matInput type="text" [formControl]="search">
+			</mat-form-field>
+			<button [routerLink]="'/pix/create'" mat-raised-button color="primary" class="btn-create-key">Cadastrar Chave</button>
+		</div>
+		<div class="body pix-list">
+			<div *ngFor="let pix of pixKeys" class="pix-item">
+				<span class="pix-label">{{pix?.label}}</span>
+				<span class="pic-key">{{pix?.key}}</span>
+			</div>
+		</div>
+	</fintech-card>
+</div>

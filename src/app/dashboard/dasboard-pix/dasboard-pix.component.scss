@@ -1,0 +1,16 @@
+.pix-item, .pix-header{
+	display: flex;
+	justify-content: space-between;
+}
+
+.pix-label{
+	font-size: 16px;
+	font-weight: 500;
+}
+
+.pix-search{
+	margin: 10px 0px;
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
+}

@@ -11,5 +11,6 @@
 		</span>
 	</div>
 	<div class="currency">{{ transaction?.currency }}</div>
-	<div class="timestamp">{{ timestampDate | date:'dd/MM/YY - hh:mm:ss' }}</div>
+	<div class="desc">{{transaction?.desc}}</div>
+	<div class="timestamp">{{ transaction?.timestamp | date:'dd/MM/YYYY' }}</div>
 </div>
