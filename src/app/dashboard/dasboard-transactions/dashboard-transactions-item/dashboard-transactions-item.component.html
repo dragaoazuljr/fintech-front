@@ -1,10 +1,15 @@
 <div class="transaction-item-content">
-	<div class="user-to">{{ transaction?.userTo?.name }}</div>
-	<div [ngClass]="[ 'value', transaction?.type || '' ]">
-		<ng-template [ngIf]="transaction?.type === 'DEBIT'">-</ng-template>
-		<ng-template [ngIf]="transaction?.type === 'CREDIT'">+</ng-template>
-		{{ transaction?.value | currency: transaction?.currency }}
+	<div class="user-to">
+		<ng-template [ngIf]="transaction?.type === 'DEBIT'">{{transaction?.userTo?.name}}</ng-template>
+		<ng-template [ngIf]="transaction?.type === 'CREDIT'">{{transaction?.userFrom?.name}}</ng-template>	
+	</div>
+	<div class="value">
+		<span [ngClass]="[ transaction?.type || '' ]">
+			<ng-template [ngIf]="transaction?.type === 'DEBIT'">-</ng-template>
+			<ng-template [ngIf]="transaction?.type === 'CREDIT'">+</ng-template>
+			{{ transaction?.value | currency: transaction?.currency }}
+		</span>
 	</div>
 	<div class="currency">{{ transaction?.currency }}</div>
-	<div class="timestamp">{{ transaction?.timestamp }}</div>
+	<div class="timestamp">{{ timestampDate | date:'dd/MM/YY - hh:mm:ss' }}</div>
 </div>

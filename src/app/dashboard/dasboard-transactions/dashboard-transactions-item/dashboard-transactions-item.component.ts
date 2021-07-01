@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 import { Transaction } from 'src/app/transactions/interfaces/Transaction';
 
 @Component({
@@ -10,9 +10,23 @@ export class DashboardTransactionsItemComponent implements OnInit {
 
   @Input() transaction: Transaction | undefined;
 
+  timestampDate: Date | undefined;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes.transaction.isFirstChange()){
+      this.timestampDate = changes.transaction.currentValue.timestamp ?
+        new Date (changes.transaction.currentValue.timestamp) :
+        new Date ()
+    }
+  }
+
+  convertTimestampToDateObj(timestamp: string) {
+    return new Date(timestamp);
   }
 
 }

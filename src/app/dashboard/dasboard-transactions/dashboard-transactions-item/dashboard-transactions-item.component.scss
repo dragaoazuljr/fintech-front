@@ -1,6 +1,47 @@
+@import "../../../../assets/colors";
+
 .transaction-item-content{
 	padding: 5px 10px;
-	display: flex;
 	width: 100%;
-	justify-content: space-between;
+	display: grid;
+	grid-template-columns:  auto 150px 50px 150px;
+	grid-template-rows: 1fr;
+}
+
+.user-to{
+	grid-column: 1 / 2 ;
+	grid-row: 1 / 1;
+
+	font-weight: 500;
+	font-size: 16px;
+}
+
+.value{
+	grid-column: 2 / 3;
+	grid-row: 1 / 1;
+
+	span {
+		padding: 2px 8px;
+		border-radius: 4px;
+	}
+
+	.CREDIT{
+		background-color: lighten($success, 50%);
+		color: darken($success, 10%);
+	}
+
+	.DEBIT {
+		background-color: lighten($error, 35%);
+		color: darken($error, 10%);
+	}
+}
+
+.currency{
+	grid-column: 3 / 4;
+	grid-row: 1 / 1;
+}
+
+.timestamp {
+	grid-column: 4 / 4;
+	grid-row: 1 / 1
 }
