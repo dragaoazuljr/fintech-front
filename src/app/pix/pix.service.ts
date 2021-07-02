@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
@@ -28,6 +28,22 @@ export class PixService {
   async searchPixKeys(key: string): Promise<Pix[]> {
     if (!this.keys) await this.getPixKeys();
     
-    return this.keys?.filter(k => k.key.indexOf(key) !== -1 || k.label.indexOf(key) !== -1);
+    return this.keys?.filter(k => 
+      k.key.toLowerCase().indexOf(key.toLowerCase()) !== -1 ||
+      k.label.toLowerCase().indexOf(key.toLowerCase()) !== -1
+    );
+  }
+
+  async deletePix(key: string) {
+    const req = new HttpRequest('DELETE', `${this.api}/pix`);
+    const newReq = req.clone({
+      body: { key }
+    });
+
+    return this._httpClient.request<Pix>(newReq).toPromise();
+  }
+
+  async createPixKey(createPixData: Pix){
+    return this._httpClient.post<Pix>(`${this.api}/pix`, createPixData).toPromise()
   }
 }

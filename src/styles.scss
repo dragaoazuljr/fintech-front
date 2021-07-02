@@ -98,8 +98,15 @@ $custom-typography-config: mat.define-typography-config(
     font-weight: 500;
 }
 
+
 input.mat-input-element{
 	color: white;
+}
+
+.light-theme{
+	input.mat-input-element{
+		color: unset;
+	}
 }
 
 body{
@@ -120,6 +127,14 @@ a {
 	&:focus-visible {
 		outline-offset: none;
 	}
+}
+
+.color-primary{
+	color: $primary;
+}
+
+.pointer {
+	cursor: pointer;
 }
 
 //scrollbar
