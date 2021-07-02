@@ -6,6 +6,7 @@ import { DashboardComponent } from './dashboard.component';
 import { DasboardBalancesComponent } from '../dasboard-balances/dasboard-balances.component';
 import { RouterModule } from '@angular/router';
 import { CardModule } from 'src/app/shared/components/card/card.module';
+import { DasboardPixComponent } from '../dasboard-pix/dasboard-pix.component';
 
 describe('DashboardComponent', () => {
   let component: DashboardComponent;
@@ -16,7 +17,8 @@ describe('DashboardComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ 
         DashboardComponent,
-        DasboardBalancesComponent
+        DasboardBalancesComponent,
+        DasboardPixComponent
       ],
       imports: [
         HttpClientTestingModule,
