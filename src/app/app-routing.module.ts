@@ -4,7 +4,8 @@ import { AuthenticatedGuard } from './guards/AuthenticatedGuard.guard';
 
 const routes: Routes = [
   { path: "auth", loadChildren: () => import('./auth/auth.module').then( m => m.AuthModule) },
-  { path: "dashboard", loadChildren: () => import('./dashboard/dashboard.module').then( m => m.DashboardModule), canActivate: [AuthenticatedGuard]}
+  { path: "dashboard", loadChildren: () => import('./dashboard/dashboard.module').then( m => m.DashboardModule), canActivate: [AuthenticatedGuard] },
+  { path: "pix", loadChildren: () => import('./pix/pix.module').then( m => m.PixModule), canActivate: [AuthenticatedGuard] },
 ];
 
 @NgModule({

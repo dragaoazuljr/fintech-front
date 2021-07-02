@@ -1,0 +1,33 @@
+<div class="pix-management-content">
+	<h1>Pix</h1>
+	<div class="pix-keys-create">
+		<div class="pix-create">
+			<h2>Cadastrar Chaves</h2>
+			<fintech-card>
+				<div class="body light-theme">
+					<form class="pix-create-card-form" [formGroup]="createPixKeyForm">
+						<mat-form-field class="pix-label">
+							<mat-label>Nome da Chave</mat-label>
+							<input type="text" matInput formControlName="label">
+						</mat-form-field>
+						<mat-form-field class="pix-key">
+							<mat-label>Chave</mat-label>
+							<input type="text" matInput formControlName="key">
+						</mat-form-field>
+						<div class="create-key">
+							<button [disabled]="createPixKeyForm.invalid" mat-raised-button color="primary" class="btn-create-key" (click)="createKey()">Cadastrar</button>
+						</div>
+					</form>
+				</div>
+			</fintech-card>
+		</div>
+		<div class="pix-keys">
+			<h2>Chaves Cadastradas</h2>
+			<fintech-card>
+				<div class="body pix-list">
+					<fintech-pix-key *ngFor="let pix of pixKeys" [pix]="pix" (removePixKeyEmitter)="removePix(pix)"></fintech-pix-key>
+				</div>
+			</fintech-card>
+		</div>
+	</div>
+</div>
